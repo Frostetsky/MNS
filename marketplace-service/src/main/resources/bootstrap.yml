@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: marketplace-service
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: config-server
+
+# disable config server and service auto registration for test purpose
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+    service-registry:
+      auto-registration:
+        enabled: false
