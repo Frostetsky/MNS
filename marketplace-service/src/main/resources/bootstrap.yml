@@ -6,7 +6,7 @@ spring:
       enabled: true
       discovery:
         enabled: true
-        serviceId: config-server
+        serviceId: config-service
 
 # disable config server and service auto registration for test purpose
 ---

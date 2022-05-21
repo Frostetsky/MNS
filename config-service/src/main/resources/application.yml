@@ -20,3 +20,4 @@ spring:
           uri: https://github.com/Frostetsky/MNS.git
           searchPaths: ['/config/']
           clone-on-start: true
+          default-label: master
