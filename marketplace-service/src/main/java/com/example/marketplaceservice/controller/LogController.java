@@ -5,6 +5,7 @@ import com.example.marketplaceservice.model.LogType;
 import com.example.marketplaceservice.service.LogCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.util.Pair;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/log")
+@RefreshScope
 public class LogController {
 
     @Value("${rest.secret}")

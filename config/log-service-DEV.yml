@@ -1,2 +1,6 @@
 database:
   in-memory: true
+
+
+store:
+  size: 1000

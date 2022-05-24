@@ -8,11 +8,13 @@ import com.example.marketplaceservice.util.ProfileType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Profile(ProfileType.PROD)
 @Service
+@Transactional
 public class ProductServiceProd implements ProductService {
 
     private final ProductRepository productRepository;
@@ -34,7 +36,7 @@ public class ProductServiceProd implements ProductService {
 
     @Override
     public void deleteById(Long id) {
-
+        productRepository.deleteById(id);
     }
 
     @Override

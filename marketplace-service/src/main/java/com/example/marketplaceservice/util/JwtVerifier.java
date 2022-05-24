@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.marketplaceservice.model.Seller;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @Component
+@RefreshScope
 public class JwtVerifier {
 
 

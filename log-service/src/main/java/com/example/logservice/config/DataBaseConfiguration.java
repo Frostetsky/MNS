@@ -1,4 +1,4 @@
-package com.example.marketplaceservice.config;
+package com.example.logservice.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.persistence.EntityManagerFactory;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.example.marketplaceservice.repository")
+@EnableJpaRepositories(basePackages = "com.example.logservice.repository")
 @ConditionalOnProperty(name = "database", value = "in-memory", havingValue = "false")
 @RefreshScope
 public class DataBaseConfiguration {
@@ -33,7 +33,7 @@ public class DataBaseConfiguration {
         vendorAdapter.setGenerateDdl(false);
         LocalContainerEntityManagerFactoryBean local = new LocalContainerEntityManagerFactoryBean();
         local.setDataSource(basicDataSource);
-        local.setPackagesToScan("com.example.marketplaceservice.model");
+        local.setPackagesToScan("com.example.logservice.model");
         local.setJpaVendorAdapter(vendorAdapter);
         return local;
     }

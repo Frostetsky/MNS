@@ -1,3 +1,14 @@
 database:
   in-memory: false
 
+
+spring:
+  data:
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/marketplace
+    username: postgres
+    password: password
+
+
+pages:
+  size: 5

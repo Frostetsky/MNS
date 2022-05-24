@@ -1,2 +1,6 @@
 rest:
   secret: 12345
+
+executor:
+  core-pool-size: 4
+  max-pool-size: 8

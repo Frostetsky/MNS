@@ -61,7 +61,7 @@ public class PrivateMarketController {
         var seller = getUserByToken(token);
         var products = findBySeller(seller);
 
-        var status = new AtomicBoolean();
+        var status = new AtomicBoolean(false);
 
         products.stream()
                 .filter(product -> product.getId() == id)
