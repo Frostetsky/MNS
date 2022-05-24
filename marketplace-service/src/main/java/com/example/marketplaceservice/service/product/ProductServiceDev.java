@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Profile(ProfileType.DEV)
 @Service
-@ConditionalOnProperty(name = "database", value = "in-memory", havingValue = "true")
+@ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "true")
 @RefreshScope
 public class ProductServiceDev implements ProductService {
 
@@ -43,5 +45,10 @@ public class ProductServiceDev implements ProductService {
     @Override
     public void deleteById(Long id) {
 
+    }
+
+    @Override
+    public Page<Product> getProducts(Pageable pageable) {
+        return null;
     }
 }

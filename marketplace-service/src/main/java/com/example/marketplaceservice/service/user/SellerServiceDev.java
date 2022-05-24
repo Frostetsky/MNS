@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Profile(ProfileType.DEV)
 @Service
-@ConditionalOnProperty(name = "database", value = "in-memory", havingValue = "true")
+@ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "true")
 public class SellerServiceDev implements SellerService {
 
     @Value("${store.size}")

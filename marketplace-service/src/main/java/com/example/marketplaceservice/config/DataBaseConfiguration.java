@@ -16,7 +16,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.example.marketplaceservice.repository")
-@ConditionalOnProperty(name = "database", value = "in-memory", havingValue = "false")
+@ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "false")
 @RefreshScope
 public class DataBaseConfiguration {
 

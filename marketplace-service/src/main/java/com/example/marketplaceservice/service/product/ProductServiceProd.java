@@ -6,7 +6,10 @@ import com.example.marketplaceservice.repository.ProductRepository;
 import com.example.marketplaceservice.service.ProductService;
 import com.example.marketplaceservice.util.ProfileType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +18,7 @@ import java.util.List;
 @Profile(ProfileType.PROD)
 @Service
 @Transactional
+@ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "false")
 public class ProductServiceProd implements ProductService {
 
     private final ProductRepository productRepository;
@@ -27,6 +31,11 @@ public class ProductServiceProd implements ProductService {
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Page<Product> getProducts(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     @Override

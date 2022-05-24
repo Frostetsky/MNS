@@ -47,11 +47,12 @@ public class LogService {
     /**
      * Осуществляем выгрузку логов с микросервиса магазина каждые 30 секунд в базу данных.
      */
-    @Scheduled(initialDelay = ONE_MINUTE, cron = "*/30 * * * * *")
+    @Scheduled(cron = "*/30 * * * * *")
     public void getLogsAndSave() {
         List<Pair<LogType, Info>> logs = marketPlaceClient.findAllLogs(secret);
 
         if (logs.isEmpty()) {
+            log.info("Новых записей логов на сервере магазина не обнаружено");
             return;
         }
 

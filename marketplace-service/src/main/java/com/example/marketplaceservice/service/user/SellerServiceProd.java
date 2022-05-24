@@ -6,6 +6,7 @@ import com.example.marketplaceservice.service.SellerService;
 import com.example.marketplaceservice.util.JwtVerifier;
 import com.example.marketplaceservice.util.ProfileType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Profile(ProfileType.PROD)
 @Service
 @Transactional
+@ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "false")
 public class SellerServiceProd implements SellerService {
 
     private final SellerRepository sellerRepository;

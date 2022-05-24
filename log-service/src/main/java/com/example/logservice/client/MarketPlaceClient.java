@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "marketplace-service", url = "/log")
+@FeignClient(name = "marketplace-service", path = "/log")
 public interface MarketPlaceClient {
 
     @GetMapping("/getLogs")

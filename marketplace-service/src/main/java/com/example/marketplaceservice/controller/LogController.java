@@ -35,7 +35,7 @@ public class LogController {
     @GetMapping("/getLogs")
     public List<Pair<LogType, Info>> findAllLogs(@RequestParam(name = "secret") String secret) {
 
-        if (Objects.equals(secret, this.secret)) {
+        if (!Objects.equals(this.secret, secret)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Неверный идентифицирующий параметр или же он отсутствует вовсе.");
         }
 

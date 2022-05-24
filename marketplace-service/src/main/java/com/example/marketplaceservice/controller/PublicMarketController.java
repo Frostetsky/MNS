@@ -2,6 +2,8 @@ package com.example.marketplaceservice.controller;
 
 import com.example.marketplaceservice.model.Product;
 import com.example.marketplaceservice.repository.ProductRepository;
+import com.example.marketplaceservice.service.ProductService;
+import com.example.marketplaceservice.service.product.ProductServiceProd;
 import net.bytebuddy.description.annotation.AnnotationValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,11 +27,11 @@ public class PublicMarketController {
     @Value("${pages.size}")
     private String size;
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
     @Autowired
-    public PublicMarketController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public PublicMarketController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/getProducts")
@@ -52,6 +54,6 @@ public class PublicMarketController {
 
         PageRequest pageRequest = PageRequest.of(page, Integer.parseInt(size), sort);
 
-        return productRepository.getProducts(pageRequest).getContent();
+        return productService.getProducts(pageRequest).getContent();
     }
 }
