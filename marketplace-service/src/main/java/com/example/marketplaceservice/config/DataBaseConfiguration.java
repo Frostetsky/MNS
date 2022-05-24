@@ -30,7 +30,7 @@ public class DataBaseConfiguration {
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(BasicDataSource basicDataSource){
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(false);
+        vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean local = new LocalContainerEntityManagerFactoryBean();
         local.setDataSource(basicDataSource);
         local.setPackagesToScan("com.example.marketplaceservice.model");
