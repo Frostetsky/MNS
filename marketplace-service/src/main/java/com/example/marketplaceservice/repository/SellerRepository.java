@@ -11,4 +11,5 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
 
     Optional<Seller> findByIdToken(String idToken);
 
+    boolean existsByUsername(String username);
 }

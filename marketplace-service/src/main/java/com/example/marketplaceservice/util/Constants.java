@@ -6,4 +6,6 @@ import lombok.experimental.UtilityClass;
 public class Constants {
 
     public final String EMPTY_MESSAGE = "Поле не должно быть пустым";
+
+    public final String USERNAME_IS_EXIST = "Пользователь с таким логином уже существует";
 }

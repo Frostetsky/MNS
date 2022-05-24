@@ -1,0 +1,6 @@
+rest:
+  secret: 12345
+
+jwt:
+  token:
+    secret: SECRET

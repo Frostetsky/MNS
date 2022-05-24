@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "users")
+@Table(name = "SELLERS")
 public class Seller {
 
     @Id
@@ -20,17 +20,17 @@ public class Seller {
     @Column(name = "INDEX")
     private long id;
 
-    @Column(name = "USERNAME")
+    @Column(name = "USERNAME", unique = true)
     private String username;
 
+    @ToString.Exclude
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "LAST_LOGIN_DATE_TIME")
-    private LocalDateTime lastLogin;
+    @Column(name = "REGISTRATION_DATE")
+    private LocalDateTime registrationDate;
 
-    @ToString.Exclude
-    @Column(name = "ID_TOKEN", unique = true)
+    @Column(name = "ID_TOKEN")
     private String idToken;
 
     @ToString.Exclude
