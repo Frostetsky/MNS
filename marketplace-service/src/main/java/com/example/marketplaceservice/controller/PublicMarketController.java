@@ -1,5 +1,6 @@
 package com.example.marketplaceservice.controller;
 
+import com.example.marketplaceservice.dto.ProductDto;
 import com.example.marketplaceservice.model.Product;
 import com.example.marketplaceservice.repository.ProductRepository;
 import com.example.marketplaceservice.service.ProductService;
@@ -35,9 +36,9 @@ public class PublicMarketController {
     }
 
     @GetMapping("/getProducts")
-    public List<Product> getProductsByCriteria(@RequestParam("page") Integer page,
-                                               @RequestParam(value = "sorted", required = false) String sortedCriteria,
-                                               @RequestParam(value = "criteria", required = false, defaultValue = "price") String field) {
+    public List<ProductDto> getProductsByCriteria(@RequestParam("page") Integer page,
+                                                  @RequestParam(value = "sorted", required = false) String sortedCriteria,
+                                                  @RequestParam(value = "criteria", required = false, defaultValue = "price") String field) {
 
         Sort sort;
 
@@ -54,6 +55,6 @@ public class PublicMarketController {
 
         PageRequest pageRequest = PageRequest.of(page, Integer.parseInt(size), sort);
 
-        return productService.getProducts(pageRequest).getContent();
+        return productService.getProducts(pageRequest);
     }
 }

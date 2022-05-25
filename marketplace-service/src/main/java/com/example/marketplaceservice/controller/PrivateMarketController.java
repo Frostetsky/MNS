@@ -1,5 +1,6 @@
 package com.example.marketplaceservice.controller;
 
+import com.example.marketplaceservice.dto.ProductDto;
 import com.example.marketplaceservice.exception.AuthorizationException;
 import com.example.marketplaceservice.model.Info;
 import com.example.marketplaceservice.model.LogType;
@@ -35,7 +36,7 @@ public class PrivateMarketController {
     }
 
     @GetMapping("/findProducts")
-    public List<Product> findAll(@CookieValue(name = "idToken") String token) throws AuthorizationException {
+    public List<ProductDto> findAll(@CookieValue(name = "idToken") String token) throws AuthorizationException {
 
         var seller = getUserByToken(token);
         return findBySeller(seller);
@@ -92,7 +93,7 @@ public class PrivateMarketController {
        }
     }
 
-    private List<Product> findBySeller(Seller seller) {
-        return productService.findBySeller(seller);
+    private List<ProductDto> findBySeller(Seller seller) {
+        return productService.findProductsBySeller(seller);
     }
 }

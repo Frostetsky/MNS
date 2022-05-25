@@ -1,5 +1,6 @@
 package com.example.marketplaceservice.service.product;
 
+import com.example.marketplaceservice.dto.ProductDto;
 import com.example.marketplaceservice.model.Product;
 import com.example.marketplaceservice.model.Seller;
 import com.example.marketplaceservice.service.ProductService;
@@ -28,12 +29,7 @@ public class ProductServiceDev implements ProductService {
     private final Map<Long, Product> store = new ConcurrentHashMap<>(Integer.parseInt(size));
 
     @Override
-    public List<Product> findBySeller(Seller seller) {
-        return null;
-    }
-
-    @Override
-    public List<Product> findAll() {
+    public List<ProductDto> findProductsBySeller(Seller seller) {
         return null;
     }
 
@@ -48,7 +44,7 @@ public class ProductServiceDev implements ProductService {
     }
 
     @Override
-    public Page<Product> getProducts(Pageable pageable) {
+    public List<ProductDto> getProducts(Pageable pageable) {
         return null;
     }
 }

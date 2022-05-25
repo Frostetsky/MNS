@@ -1,5 +1,6 @@
 package com.example.marketplaceservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,6 +35,7 @@ public class Seller {
     private String idToken;
 
     @ToString.Exclude
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "seller")
     private List<Product> products;
 }
