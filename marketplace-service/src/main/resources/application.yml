@@ -4,11 +4,17 @@ server:
 management:
   security:
     enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: *
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+
 
 
 spring:

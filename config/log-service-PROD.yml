@@ -4,6 +4,6 @@ database:
 spring:
   data:
     driver: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/logs
+    url: jdbc:postgresql://localhost:5432/logs_reserve
     username: postgres
     password: password
