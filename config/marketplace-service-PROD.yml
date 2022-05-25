@@ -5,7 +5,7 @@ database:
 spring:
   data:
     driver: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/marketplace
+    url: jdbc:postgresql://localhost:5432/marketplace_reserve
     username: postgres
     password: password
 

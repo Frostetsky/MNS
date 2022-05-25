@@ -17,10 +17,10 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 @EnableJpaRepositories(basePackages = "com.example.marketplaceservice.repository")
 @ConditionalOnProperty(prefix = "database", name = "in-memory", havingValue = "false")
-@RefreshScope
 public class DataBaseConfiguration {
 
     @Bean(name = "transactionManager")
+    @RefreshScope
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManager){
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
         jpaTransactionManager.setEntityManagerFactory(entityManager);
@@ -28,6 +28,7 @@ public class DataBaseConfiguration {
     }
 
     @Bean(name = "entityManagerFactory")
+    @RefreshScope
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(BasicDataSource basicDataSource){
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
@@ -39,6 +40,7 @@ public class DataBaseConfiguration {
     }
 
     @Bean
+    @RefreshScope
     public BasicDataSource getDataSource(Environment environment){
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName(environment.getProperty("spring.data.driver"));
