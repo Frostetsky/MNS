@@ -39,7 +39,7 @@ public class DataBaseConfiguration {
         return local;
     }
 
-    @Bean
+    @Bean(name = "dataSource")
     @RefreshScope
     public BasicDataSource getDataSource(Environment environment){
         BasicDataSource basicDataSource = new BasicDataSource();
